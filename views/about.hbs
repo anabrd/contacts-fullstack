@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+<style>
+    .card {
+        border: 1px solid #0a92a4;
+        width: 320px;
+        height: 300px;
+        margin: 20px;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 190px;
+    }
+
+    .image {
+        background-color:#afd2d7;
+        color:white;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        margin: 15px auto 0;
+        font-size: 2.5rem;
+    }
+
+    .image:hover {
+        filter: opacity(0.8);
+    }
+</style>
+<body>
+    {{> header}}
+
+    <h1>Hello HBS</h1>
+    
+    {{#each testData}}
+    <div class="card">
+        <div class="image" style="background-image: url(http://localhost:8080/avatars/{{this.contactPic}}); background-size: cover"></div>
+        <section class="card-content">
+            <div>
+                {{this.fullName}}
+            </div>
+            <div>
+                {{this.email}}
+            </div>
+            <div>
+                {{this.phone}}
+            </div>
+            <div>
+                {{this.address}}
+            </div>
+        </section>
+        <button onclick = "sayHello('{{this.fullName}}')">🗣</button>
+        </button>
+    </div>
+    {{/each}}
+</body>
+<script>
+    const sayHello = (user) => {
+        alert("Hey " + user);
+    }
+</script>
+</html>
