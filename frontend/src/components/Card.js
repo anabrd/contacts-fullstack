@@ -56,7 +56,7 @@ function Card({contact, deleteContact, message, setMessage}) {
 
         console.log(contactInfo)
 
-        const url = 'http://localhost:8080/contacts/update';
+        const url = '/contacts/update';
         const options = {
         method: 'POST',
         headers: {

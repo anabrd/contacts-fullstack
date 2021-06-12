@@ -14,7 +14,7 @@ function GetContact() {
         data.append("message", e.target[3].value);
         // data.append("message", e.target[4].files);
         
-      /*   for (let i = 0 ; i < e.target[4].files.length ; i++) {
+        /*   for (let i = 0 ; i < e.target[4].files.length ; i++) {
             data.append("attachs",  e.target[4].files[i]);
         }
  */
@@ -29,7 +29,7 @@ function GetContact() {
             console.log(value);
         }
 
-        let url = "https://my-contacts-mern-app.herokuapp.com/get-contact"
+        let url = "/get-contact"
         let options = {
             method: 'POST',
             body: data
