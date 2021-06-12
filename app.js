@@ -19,7 +19,6 @@ app.engine('html', hbs.__express);
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
-// This provides public access to the folfer specified in the static
 app.use(express.static(path.resolve(__dirname, "frontend/build")));
 
 let allowCrossDomain = function(req, res, next) {
