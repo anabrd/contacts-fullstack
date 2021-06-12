@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, 'static/media')
+        callback(null, '/static/media')
     },
     filename: function(req, file, callback) {
         // The timestamps will give a unique filename on the server
@@ -55,7 +55,7 @@ exports.deleteContact = (req, res) => {
             })
 
             try {
-                fs.unlinkSync('static/media/' + doc.contactPic);
+                fs.unlinkSync('/static/media/' + doc.contactPic);
                 console.log("deleted")
             } catch (err) {
                 // handle the error
@@ -90,7 +90,7 @@ exports.updateContact = (req,res) => {
         } else {
             if (contact.contactPic) {
                 try {
-                    fs.unlinkSync('static/media/' + doc.contactPic);
+                    fs.unlinkSync('/static/media/' + doc.contactPic);
                     console.log("deleted")
                 } catch (err) {
                     // handle the error
