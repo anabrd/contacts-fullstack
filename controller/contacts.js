@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     }
 });
 
-console.log("storage", storage)
+
 
 // Connecting stirage settings to multer
 const upload = multer({storage: storage}).single('contactPic');
@@ -134,6 +134,9 @@ exports.updateContact = (req,res) => {
 
 exports.addContact = (req, res) => {
     // Have to make it async/await because it takes time to download/parse file
+
+    console.log("storage", storage)
+
     upload(req, res, async (err) => {
         if (err) {
             console.log({err})
