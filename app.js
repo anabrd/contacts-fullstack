@@ -19,6 +19,7 @@ app.engine('html', hbs.__express);
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
+// This provides public access to the folfer specified in the static
 app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 
 let allowCrossDomain = function(req, res, next) {
@@ -30,18 +31,14 @@ let allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
-// This provides public access to the folfer specified in the static
-app.use(express.static(path.resolve(__dirname, "../frontend/build")));
-
-
-
 app.listen(port, () => (console.log(`Server started to run on port ${port}.`)));
 
 // Routes
 app.use('/auth', auth);
-app.use('/contacts', authMid.checkAuth, contacts)
-app.use('/pages', publicViews)
-app.use('/', publicRoutes)
+app.use('/contacts', authMid.checkAuth, contacts);
+app.use('/pages', publicViews);
+app.use('/', publicRoutes);
+
 // If it doesn't file any route, it will go into build folder
 app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
