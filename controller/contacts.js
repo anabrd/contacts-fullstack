@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, 'frontend/avatars')
+        callback(null, 'frontend/build')
     },
     filename: function(req, file, callback) {
         // The timestamps will give a unique filename on the server
