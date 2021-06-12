@@ -4,7 +4,7 @@
   "description": "Backend app for MERN stack contact list",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run frontend\"",
     "frontend-install":"npm install --prefix frontend",
     "frontend":"npm start --prefix frontend",
