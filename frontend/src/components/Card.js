@@ -84,7 +84,7 @@ function Card({contact, deleteContact, message, setMessage}) {
     return (
         <div className={message ? "card card-animate" : "card"} style={{backgroundColor: bgColor}}>
             {isEditable ? <input type="file" data-id="contactPic" onChange={editCardHandler}/> : <div 
-            className="image" style={{backgroundImage: `/avatars/${imgPath})`, backgroundSize: "cover"}}></div>}
+            className="image" style={{backgroundImage: `/public/avatars/${imgPath})`, backgroundSize: "cover"}}></div>}
             <section className="card-content">
                 <div 
                 data-id="fullName"
