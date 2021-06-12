@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, '/frontend/build/static/media')
+        callback(null, 'frontend/build/static/media')
     },
     filename: function(req, file, callback) {
         // The timestamps will give a unique filename on the server
@@ -16,6 +16,8 @@ const storage = multer.diskStorage({
         callback(null, 'a' + Date.now() + path.extname(file.originalname))
     }
 });
+
+console.log("storage", storage)
 
 // Connecting stirage settings to multer
 const upload = multer({storage: storage}).single('contactPic');
