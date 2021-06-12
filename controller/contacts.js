@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, '../frontend/build/public')
+        callback(null, 'frontend/avatars')
     },
     filename: function(req, file, callback) {
         // The timestamps will give a unique filename on the server
@@ -135,7 +135,8 @@ exports.updateContact = (req,res) => {
 exports.addContact = (req, res) => {
     // Have to make it async/await because it takes time to download/parse file
 
-    console.log("storage", storage)
+    console.log("storage", storage);
+    console.log("pwd", __dirname)
 
     upload(req, res, async (err) => {
         if (err) {
