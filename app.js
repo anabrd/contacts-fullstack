@@ -20,9 +20,6 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.static(path.resolve(__dirname, "../frontend/build")));
-app.get("*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
-});
 
 let allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
